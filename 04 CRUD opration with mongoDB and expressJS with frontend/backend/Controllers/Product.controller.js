@@ -1,11 +1,11 @@
 import { Product } from "../models/Product.models.js"
 
-export const GetProducts = async (res) => {
+export const GetProducts = async (req, res) => {
     try {
         const Products = await Product.find({})
         res.status(200).json({ success: true, products: Products })
     } catch (error) {
-        console.error("error in deleting product: ", error)
+        console.error("error in product fetch: ", error)
         res.status(404).json({ success: false, message: "Product fetch failed" })
     }
 }
